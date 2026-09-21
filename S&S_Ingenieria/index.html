@@ -213,5 +213,31 @@
 
     <!-- Enlace al archivo JavaScript -->
     <script src="script.js"></script>
+
+    <!-- SECCIÓN DE AUTENTICACIÓN (LOGIN / REGISTRO) -->
+<div id="auth-section">
+    <h3>Acceso de Usuarios / Clientes</h3>
+    <input type="email" id="email" placeholder="Correo electrónico">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="registrarUsuario()">Registrarse</button>
+    <button onclick="loginUsuario()">Iniciar Sesión</button>
+</div>
+
+<!-- SECCIÓN DE GESTIÓN DE POSVENTA (Oculta hasta que inicien sesión) -->
+<div id="dashboard-section" style="display: none;">
+    <h3>Bienvenido, <span id="user-email-display"></span></h3>
+    <button onclick="cerrarSesion()">Cerrar Sesión</button>
+
+    <h4>Nuevo Levantamiento de Servicio Posventa</h4>
+    <form id="ticket-form" onsubmit="crearTicket(event)">
+        <input type="text" id="cliente_nombre" placeholder="Nombre de la Empresa o Cliente" required>
+        <input type="text" id="equipo_servicio" placeholder="Equipo o Sistema (Ej. Tablero PLC)" required>
+        <textarea id="descripcion" placeholder="Describa el problema o solicitud posventa..." required></textarea>
+        <button type="submit">Enviar Solicitud Posventa</button>
+    </form>
+
+    <h4>Tus Solicitudes Registradas</h4>
+    <div id="lista-tickets"></div>
+</div>
 </body>
 </html>
